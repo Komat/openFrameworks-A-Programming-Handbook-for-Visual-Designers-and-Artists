@@ -2,15 +2,21 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofLog() << "openFrameworks...";
+    int x = 20;
+    ofLog() << x;
 
-    ofSetWindowShape(400, 400);
+    ofLog() << "10";
+    ofLog() << "20";
+    ofLog() << "30";
 
+    int x2 = 20;
+    int y2 = 80;
+    ofLog() << x2, y2;
 
-    img.loadImage("nyt_13.jpg");
-
-    ofBackground(0);
-
-    refresh();
+    int x3 = 20;
+    int y3 = 80;
+    ofLog() << x3 << " and " << y3;
 
 }
 
@@ -21,9 +27,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofTranslate(x, y);
-    ofRotate(a);
-    img.draw(-(img.getWidth() / 2), -(img.getHeight() / 2));
+
 }
 
 //--------------------------------------------------------------
@@ -48,7 +52,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    refresh();
+
 }
 
 //--------------------------------------------------------------
@@ -77,16 +81,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
-}
-
-void ofApp::refresh() {
-
-    int width = ofGetWidth();
-    int height = ofGetHeight();
-
-    x = ofRandom(width);
-    y = ofRandom(height);
-    a = ofRandom(0, (float) TWO_PI);
 }

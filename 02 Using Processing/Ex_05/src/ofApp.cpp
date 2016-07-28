@@ -3,27 +3,10 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
 
-    static const string empty_string;
 
-    arraySize = (int) (sizeof(elements) / sizeof(elements[0]));
-
-    ofSetWindowShape(1200, 600);
-
-    ofBackground(0);
-    ostringstream oss;
-
-    for (int i = 0; i < arraySize; ++i) {
-        oss.clear();
-        oss << "nyt_" << ((i + 1) < 10 ? "0" : "") << i + 1 << ".jpg";
-        string pathName = oss.str();
-        oss.str(empty_string);
-        oss.clear();
-        oss << dec;
-        elements[i].load(pathName);
-    }
-
-    ofSetColor(255, 255, 255);
-
+    ofSetWindowShape(100, 100);
+    ofBackground(204);
+    ofSetColor(0);
 }
 
 //--------------------------------------------------------------
@@ -34,9 +17,12 @@ void ofApp::update() {
 //--------------------------------------------------------------
 void ofApp::draw() {
 
-    for (int i = 0; i < arraySize; ++i) {
-        elements[i].display();
-    }
+    float  x = mouseX;
+    float  y = mouseY;
+
+    ofLine(x, y, x + 20, y - 40);
+    ofLine(x + 10, y, x + 30, y - 40);
+    ofLine(x + 20, y, x + 40, y - 40);
 
 }
 
@@ -62,9 +48,7 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-    for (int i = 0; i < arraySize; ++i) {
-        elements[i].refresh();
-    }
+
 }
 
 //--------------------------------------------------------------

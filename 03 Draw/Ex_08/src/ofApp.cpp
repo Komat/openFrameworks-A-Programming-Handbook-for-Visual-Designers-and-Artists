@@ -1,17 +1,8 @@
 #include "ofApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
-
-    ofSetWindowShape(400, 400);
-
-
-    img.loadImage("nyt_13.jpg");
-
-    ofBackground(0);
-
-    refresh();
-
+void ofApp::setup() {
+    ofSetColor(0);
 }
 
 //--------------------------------------------------------------
@@ -21,9 +12,10 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofTranslate(x, y);
-    ofRotate(a);
-    img.draw(-(img.getWidth() / 2), -(img.getHeight() / 2));
+    ofCircle(-500, 100, 1);
+    ofCircle(400, -600, 1);
+    ofCircle(140, 2500, 1);
+    ofCircle(2500, 100, 1);
 }
 
 //--------------------------------------------------------------
@@ -48,7 +40,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    refresh();
+
 }
 
 //--------------------------------------------------------------
@@ -79,14 +71,4 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){
 
-}
-
-void ofApp::refresh() {
-
-    int width = ofGetWidth();
-    int height = ofGetHeight();
-
-    x = ofRandom(width);
-    y = ofRandom(height);
-    a = ofRandom(0, (float) TWO_PI);
 }

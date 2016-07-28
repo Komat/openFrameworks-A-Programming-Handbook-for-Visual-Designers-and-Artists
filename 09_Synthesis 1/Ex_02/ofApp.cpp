@@ -3,7 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup() {
     ofSetWindowShape(600, 600);
-    ofEnableSmoothing();
+
     ofHideCursor();
     ofBackground(102);
 }

@@ -3,15 +3,18 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    ofSetWindowShape(400, 400);
+    num = 20;
+    dx[num] = {0};
+    dy[num] = {0};
 
 
-    img.loadImage("nyt_13.jpg");
+    ofSetWindowShape(100, 100);
+    ofBackground(204);
 
-    ofBackground(0);
-
-    refresh();
-
+    for (int i = 0; i < num; ++i) {
+        dx[i] = i * 5;
+        dy[i] = 12 + (i * 6);
+    }
 }
 
 //--------------------------------------------------------------
@@ -21,9 +24,11 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofTranslate(x, y);
-    ofRotate(a);
-    img.draw(-(img.getWidth() / 2), -(img.getHeight() / 2));
+    for (int i = 0; i < num; i++) {
+        dx[i] = dx[i] + 1;
+        if (dx[i] > 100) {dx[i] = -100;}
+        diagonals(dx[i], dy[i]);
+    }
 }
 
 //--------------------------------------------------------------
@@ -48,7 +53,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    refresh();
+
 }
 
 //--------------------------------------------------------------
@@ -81,12 +86,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
 
-void ofApp::refresh() {
-
-    int width = ofGetWidth();
-    int height = ofGetHeight();
-
-    x = ofRandom(width);
-    y = ofRandom(height);
-    a = ofRandom(0, (float) TWO_PI);
-}
+void ofApp::diagonals(int x, int y) {
+    ofLine(x, y, x + 20, y - 40);
+    ofLine(x + 10, y, x + 30, y - 40);
+    ofLine(x + 20, y, x + 40, y - 40);
+}?
