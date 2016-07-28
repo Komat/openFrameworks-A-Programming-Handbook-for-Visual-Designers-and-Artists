@@ -3,26 +3,25 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    ofSetWindowShape(400, 400);
+    int width = ofGetWidth();
+    int height = ofGetHeight();
 
-    img.loadImage("nyt_13.jpg");
-
-    ofBackground(0);
-
-    refresh();
+    circle = OverCircle(width / 2, height / 2, 10);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
+    int mx = (int)ofRandom(100);
+    int my = (int)ofRandom(100);
+
+    circle.update(mx, my);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofTranslate(x, y);
-    ofRotate(a);
-    img.draw(-(img.getWidth() / 2), -(img.getHeight() / 2));
+    circle.display();
 }
 
 //--------------------------------------------------------------
@@ -47,7 +46,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    refresh();
+
 }
 
 //--------------------------------------------------------------
@@ -76,16 +75,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
-}
-
-void ofApp::refresh() {
-
-    int width = ofGetWidth();
-    int height = ofGetHeight();
-
-    x = ofRandom(width);
-    y = ofRandom(height);
-    a = ofRandom(0, (float) TWO_PI);
 }

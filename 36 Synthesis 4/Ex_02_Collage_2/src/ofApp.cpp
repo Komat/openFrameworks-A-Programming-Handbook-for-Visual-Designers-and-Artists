@@ -8,7 +8,6 @@ void ofApp::setup() {
     arraySize = (int) (sizeof(elements) / sizeof(elements[0]));
 
     ofSetWindowShape(1200, 600);
-
     ofBackground(0);
     ostringstream oss;
 

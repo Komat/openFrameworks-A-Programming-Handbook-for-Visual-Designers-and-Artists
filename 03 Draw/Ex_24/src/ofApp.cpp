@@ -2,15 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
-    ofSetWindowShape(400, 400);
-
-    img.loadImage("nyt_13.jpg");
-
-    ofBackground(0);
-
-    refresh();
-
+    ofSetColor(0);
 }
 
 //--------------------------------------------------------------
@@ -20,9 +12,18 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    ofTranslate(x, y);
-    ofRotate(a);
-    img.draw(-(img.getWidth() / 2), -(img.getHeight() / 2));
+
+    ofPath curve;
+    curve.setStrokeWidth(1);
+    curve.setStrokeColor(0);
+    curve.moveTo(32, 20);
+    curve.bezierTo(80, 5, 80, 75, 30, 75);
+    curve.draw();
+
+    ofLine(32, 20, 80, 5);
+    ofEllipse(80, 5, 4, 4);
+    ofLine(80, 75, 30, 75);
+    ofEllipse(80, 75, 4, 4);
 }
 
 //--------------------------------------------------------------
@@ -47,7 +48,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    refresh();
+
 }
 
 //--------------------------------------------------------------
@@ -76,16 +77,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
-}
-
-void ofApp::refresh() {
-
-    int width = ofGetWidth();
-    int height = ofGetHeight();
-
-    x = ofRandom(width);
-    y = ofRandom(height);
-    a = ofRandom(0, (float) TWO_PI);
 }

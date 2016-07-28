@@ -6,7 +6,6 @@ void ofApp::setup() {
     x = 0;
     y = 55;
 
-
     ofSetWindowShape(100, 100);
     ofBackground(204);
 }

@@ -7,7 +7,6 @@ void ofApp::setup(){
     dx[num] = {0};
     dy[num] = {0};
 
-
     ofSetWindowShape(100, 100);
     ofBackground(204);
 
